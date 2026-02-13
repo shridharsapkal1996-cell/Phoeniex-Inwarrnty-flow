@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Postman collection with Newman
         run: |
-          newman run 'Inwarranty-Flow-Request Copy.postman_collection.json' \
-          -e 'QA INT.postman_environment.json' \
-          -d 'textdata.csv' \
+          newman run "Inwarranty-Flow-Request Copy.postman_collection.json" \
+          -e "QA INT.postman_environment.json" \
+          -d "textdata.csv" \
           -r cli,htmlextra
