@@ -1,13 +1,14 @@
 name: postman collection workflow
 
-
 on:
   push:
-  branches: [main]
-     workflow_dispatch:
-    -cron : 30 20 * * *  #8 am IST Every day
-    -cron : 00 14 * * * # 7:30 pm IST Every day
-    -cron : 00 06 * * 1-5 # 11:30 am IST monday to friday
+    branches: [main]
+  workflow_dispatch:   # allows manual trigger
+  schedule:            # cron-based triggers
+    - cron: '30 20 * * *'   # 8 am IST every day
+    - cron: '00 14 * * *'   # 7:30 pm IST every day
+    - cron: '00 06 * * 1-5' # 11:30 am IST Monday to Friday
+
     
     jobs:
     run -postman-tests:
