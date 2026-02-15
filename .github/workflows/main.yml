@@ -40,10 +40,10 @@ jobs:
            name: Newman report
            path: newman/*.html
 
-          -name:creating github page branch 
-            if:always()
-            uses:peaceries/actions-gh-pages@v4.0.0
+          -name: creating github page branch 
+            if: always()
+            uses: peaceries/actions-gh-pages@v4.0.0
             with:
-            github-token:${{ secrets.GITHUB_TOKEN }}
-            publish-dir:newman/
+             github-token: ${{ secrets.GITHUB_TOKEN }}
+             publish-dir: newman/
             
