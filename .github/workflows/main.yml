@@ -35,14 +35,14 @@ jobs:
 
           - name: Newman Report
           if:always() #ensure that the archive executed irrespective whether the privios steps has passed or not
-          uses: actions/upload-artifact@v6.0.0
+          uses: actions/upload-artifact@v4
           with:
            name: Newman report
            path: newman/*.html
 
           -name: creating github page branch 
             if: always()
-            uses: peaceries/actions-gh-pages@v4.0.0
+            uses: peaceiris/actions-gh-pages@v4
             with:
              github-token: ${{ secrets.GITHUB_TOKEN }}
              publish-dir: newman/
