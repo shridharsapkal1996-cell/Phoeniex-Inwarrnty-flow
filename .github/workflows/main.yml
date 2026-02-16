@@ -47,3 +47,22 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: newman
+
+      - name: Send email notification
+        if: always()
+        uses: dawidd6/action-send-mail@v9
+        with:
+            server_address: smtp.gmail.com
+            server_port: 465
+            username: ${{ secrets.EMIAL_USERNAME }}
+            password: ${{ secrets.EMAIL_PASSWORD }}
+            subject: Phoenix inwarrenty flow test execution flow 
+            to: shridharsapkal2026@gmail.com
+            from: ${{ secrets.EMIAL_USERNAME }}
+            body: 
+                 Hi,
+                 Phoenix inwarrenty flow is executed and report is published and URL is- https://shridharsapkal1996-cell.github.io/Phoeniex-Inwarrnty-flow/
+            attachments: newman/index.html
+            
+        
+      
